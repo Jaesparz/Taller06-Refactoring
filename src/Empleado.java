@@ -1,6 +1,6 @@
 package src;
 
-public class Empleado {
+public abstract class Empleado {
     private String nombre;
     private double salarioBase;
     private int horasTrabajadas;
@@ -8,13 +8,25 @@ public class Empleado {
     private String genero;
 
 
-    public Empleado(){}
     public Empleado(String nombre, double salarioBase, int horasTrabajadas, double tarifaHora, String departamento, String genero) {
         this.nombre = nombre;
         this.salarioBase = salarioBase;
         this.horasTrabajadas = horasTrabajadas;
         this.departamento = departamento;
         this.genero = genero;
+    }
+    
+    public Empleado(String nombre, double salarioBase, int horasTrabajadas,String departamento) {
+        this.nombre = nombre;
+        this.salarioBase = salarioBase;
+        this.horasTrabajadas = horasTrabajadas;
+        this.departamento = departamento;
+    }
+
+    public Empleado(String nombre, double salarioBase, int horasTrabajadas) {
+        this.nombre = nombre;
+        this.salarioBase = salarioBase;
+        this.horasTrabajadas = horasTrabajadas;
     }
 
     public double calcularSalario() {
@@ -40,17 +52,18 @@ public class Empleado {
         return (horasTrabajadas - 40) * 50; //Horas extra
     }
 
-
-    private double ajustarPorDepartamento() {
-        switch (departamento) {
-            case "Sistemas":
-                return 20;
-            case "Contabilidad":
-                return 10;
-            default:
-                return 0;
-        }
+    public void imprimirDetalles() {
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Genero: " + nombre);
+        System.out.println("Salario: " + salarioBase);
+        System.out.println("Horas trabajadas: " + horasTrabajadas);
+        System.out.println("Departamento: " + departamento);
     }
+
+
+    protected double ajustarPorDepartamento(){
+        return 0;
+    };
 
     public String getNombre() {
         return nombre;

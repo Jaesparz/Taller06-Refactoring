@@ -9,10 +9,7 @@ public class EmpleadoTemporario extends Empleado {
     private int mesesContrato;
 
     public EmpleadoTemporario(String nombre, double salarioBase, int horasTrabajadas, String departamento, int mesesContrato, String genero) {
-        this.nombre = nombre;
-        this.salarioBase = salarioBase;
-        this.horasTrabajadas = horasTrabajadas;
-        this.departamento = departamento;
+        super(nombre,salarioBase,horasTrabajadas,departamento);
         this.mesesContrato = mesesContrato;
         this.genero = genero;
     }

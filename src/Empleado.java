@@ -15,6 +15,13 @@ public abstract class Empleado {
         this.tarifaHora = tarifaHora;
         this.departamento = departamento;
     }
+    
+    public Empleado(String nombre, double salarioBase, int horasTrabajadas,String departamento) {
+        this.nombre = nombre;
+        this.salarioBase = salarioBase;
+        this.horasTrabajadas = horasTrabajadas;
+        this.departamento = departamento;
+    }
 
     public double calcularSalario() {
 

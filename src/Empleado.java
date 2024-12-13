@@ -7,12 +7,18 @@ public abstract class Empleado {
     private String departamento;
     private double tarifaHora;
 
-    public Empleado(){}
     public Empleado(String nombre, double salarioBase, int horasTrabajadas, double tarifaHora, String departamento) {
         this.nombre = nombre;
         this.salarioBase = salarioBase;
         this.horasTrabajadas = horasTrabajadas;
         this.tarifaHora = tarifaHora;
+        this.departamento = departamento;
+    }
+    
+    public Empleado(String nombre, double salarioBase, int horasTrabajadas,String departamento) {
+        this.nombre = nombre;
+        this.salarioBase = salarioBase;
+        this.horasTrabajadas = horasTrabajadas;
         this.departamento = departamento;
     }
 
@@ -43,6 +49,14 @@ public abstract class Empleado {
             return 0; //Sin horas extra
         }
         return (horasTrabajadas - 40) * 50; //Horas extra
+    }
+
+    public void imprimirDetalles() {
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Genero: " + nombre);
+        System.out.println("Salario: " + salarioBase);
+        System.out.println("Horas trabajadas: " + horasTrabajadas);
+        System.out.println("Departamento: " + departamento);
     }
 
 

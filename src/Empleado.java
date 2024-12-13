@@ -17,44 +17,38 @@ public class Empleado {
     }
 
     public double calcularSalario() {
-        double salarioTotal = salarioBase;
 
-        if (salarioBase > 0) {
-            if (horasTrabajadas >= 0) {
-                salarioTotal += calcularHorasExtra();
-            } else {
-                throw new IllegalArgumentException("Las horas trabajadas deben ser mayor o igual a 0");
-            }
-        } else {
+        if (salarioBase <= 0) {
             throw new IllegalArgumentException("El salario debe ser mayor o igual a 0");
         }
+        if(horasTrabajadas < 0) {
+            throw new IllegalArgumentException("Las horas trabajadas deben ser mayor o igual a 0");
+        }
 
+        double salarioTotal = salarioBase;
+        salarioTotal += calcularHorasExtra();
         salarioTotal += ajustarPorDepartamento();
+
         return salarioTotal;
     }
 
     private double calcularHorasExtra() {
-        double horasExtra = 0;
-        if (horasTrabajadas > 40) {
-            horasExtra = (horasTrabajadas - 40) * 50; // Pago de horas extra
+        if (horasTrabajadas <= 40) {
+            return 0; //Sin horas extra
         }
-        return horasExtra;
+        return (horasTrabajadas - 40) * 50; //Horas extra
     }
 
 
     private double ajustarPorDepartamento() {
-        double ajuste = 0;
         switch (departamento) {
             case "Sistemas":
-                ajuste = 20;
-                break;
+                return 20;
             case "Contabilidad":
-                ajuste = 10;
-                break;
+                return 10;
             default:
-                break;
+                return 0;
         }
-        return ajuste;
     }
 
     public String getNombre() {

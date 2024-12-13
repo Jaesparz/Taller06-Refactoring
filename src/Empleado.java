@@ -38,11 +38,7 @@ public abstract class Empleado {
             throw new IllegalArgumentException("Las horas trabajadas deben ser mayor o igual a 0");
         }
 
-        double salarioTotal = salarioBase;
-        salarioTotal += calcularHorasExtra();
-        salarioTotal += ajustarPorDepartamento();
-
-        return salarioTotal;
+        return salarioBase + calcularHorasExtra() + ajustarPorDepartamento();
     }
 
     private double calcularHorasExtra() {

@@ -16,6 +16,12 @@ public abstract class Empleado {
         this.departamento = departamento;
     }
 
+    public Empleado(String nombre, double salarioBase, int horasTrabajadas) {
+        this.nombre = nombre;
+        this.salarioBase = salarioBase;
+        this.horasTrabajadas = horasTrabajadas;
+    }
+
     public double calcularSalario() {
 
         if (salarioBase <= 0) {
@@ -40,7 +46,9 @@ public abstract class Empleado {
     }
 
 
-    protected abstract double ajustarPorDepartamento();
+    protected double ajustarPorDepartamento(){
+        return 0;
+    };
 
     public String getNombre() {
         return nombre;

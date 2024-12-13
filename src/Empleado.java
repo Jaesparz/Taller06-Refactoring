@@ -1,6 +1,6 @@
 package src;
 
-public class Empleado {
+public abstract class Empleado {
     private String nombre;
     private double salarioBase;
     private int horasTrabajadas;
@@ -40,16 +40,7 @@ public class Empleado {
     }
 
 
-    private double ajustarPorDepartamento() {
-        switch (departamento) {
-            case "Sistemas":
-                return 20;
-            case "Contabilidad":
-                return 10;
-            default:
-                return 0;
-        }
-    }
+    protected abstract double ajustarPorDepartamento();
 
     public String getNombre() {
         return nombre;
